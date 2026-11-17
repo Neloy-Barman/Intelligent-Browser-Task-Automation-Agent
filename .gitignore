@@ -205,6 +205,11 @@ cython_debug/
 # Temporary file for partial code execution
 tempCodeRunnerFile.py
 
+# Project-specific ignores
+AGENTS.md
+x.py
+.playwright-mcp/
+
 # Ruff stuff:
 .ruff_cache/
 
