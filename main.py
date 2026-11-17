@@ -1,5 +1,8 @@
 import sys
 
+# Register Phoenix tracing for this project (global registration).
+import tracing.phoenix_tracing  # noqa: F401
+
 from crew import crew
 
 

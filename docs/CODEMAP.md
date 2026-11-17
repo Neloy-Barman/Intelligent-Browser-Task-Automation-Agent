@@ -8,11 +8,19 @@
 - Application source code lives under `agents/`.
 
 ## Application
-- `agents/browser_automation_agent.py` — Initializes a CrewAI `Agent` (variable `browser_automation_agent`) with `role`, `goal`, `backstory`, and `llm` (from config).
+- `agents/browser_automation_agent.py` — Initializes a CrewAI `Agent` (variable `browser_automation_agent`) with `role`, `goal`, `backstory`, and `llm` (from llm_providers).
 - `tasks/browser_automation_task.py` — Defines a CrewAI `Task` (variable `browser_automation_task`) with `description`, `expected_output`, assigned to `browser_automation_agent`.
-- `config/llm_config.py` — Builds a CrewAI `LLM` (variable `llm`) for OpenRouter, reading `OPENROUTER_MODEL` and `OPENROUTER_API_KEY` from environment.
-- `.env.example` — Example environment variables for OpenRouter configuration.
+- `config/llm_config.py` — Holds all LLM environment variables and defines `LLM_PROVIDER` selector.
+- `config/playwright_config.py` — Playwright MCP settings (browser, headless, timeouts).
+- `llm_providers/openrouter.py` — OpenRouter LLM provider defining `llm`.
+- `llm_providers/lm_studio.py` — LM Studio LLM provider defining `llm`.
+- `llm_providers/llm_provider.py` — Selects provider based on `LLM_PROVIDER` and exposes `llm`.
+- `llm_providers/__init__.py` — Re-exports `llm` for use by agents.
+- `.env.example` — Example environment variables.
 - `crew.py` — Defines a CrewAI `Crew` (variable `crew`) with `browser_automation_agent` and `browser_automation_task`.
-- `main.py` — Entry point: reads a browser task from user input and kicks off `crew` with interpolated `{task}`.
-- `mcp_config/playwright_mcp.py` — Defines Playwright MCP server config (`playwright_mcp_server`) using `MCPServerStdio`.
-- `agents/browser_automation_agent.py` — Builds `agent_mcps` list and passes it to the Agent via `mcps`.
+- `main.py` — Entry point: reads a browser task, imports phoenix_config for global tracer registration, kicks off `crew`.
+- `mcp_servers/playwright_mcp.py` — Builds Playwright MCP args dynamically via `build_playwright_args()` and defines `playwright_mcp_server`.
+- `docker-compose.yml` — Runs Arize Phoenix (UI on 6006, OTLP gRPC on 4317) for tracing/evaluations.
+- `requirements.txt` — Includes OpenInference instrumentation (crewai, litellm) and arize-phoenix.
+- `config/phoenix_config.py` — Phoenix tracing settings (project name, auto_instrument).
+- `tracing/phoenix_tracing.py` — Registers Phoenix tracer using settings from config/phoenix_config.py.

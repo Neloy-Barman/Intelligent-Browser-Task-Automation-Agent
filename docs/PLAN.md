@@ -12,13 +12,21 @@
 - [x] Create `crew.py` defining a CrewAI `Crew` (`crew`) with the browser automation agent and task.
 - [x] Add variable interpolation (`{task}`) to `browser_automation_task` description.
 - [x] Create `main.py` entry point that takes user input and kicks off the crew.
-- [x] Create `mcp_config/` folder with `playwright_mcp.py` defining Playwright MCP server config.
+- [x] Create `mcp_servers/` folder with `playwright_mcp.py` defining Playwright MCP server config.
 - [x] Wire Playwright MCP tools into `browser_automation_agent`.
 - [x] Create `.env` from `.env.example` for real OpenRouter values.
 - [x] Update `main.py` to use a direct `user_task` variable (prompt commented out).
 - [x] Resolve Playwright MCP Chromium 'chrome' not found issue (install chromium + set `--browser chromium`).
 - [x] Switch Playwright MCP integration to standard CrewAI `crewai.mcp` (`MCPServerStdio` via `mcps`).
 - [x] Enable CrewAI tracing via `CREWAI_TRACING_ENABLED=true` in `.env` and `.env.example`.
+- [x] Add `--timeout-navigation 60000` to Playwright MCP args for slow-loading sites.
+- [x] Switch LLM provider from OpenRouter to local LM Studio (commented out OpenRouter).
+- [x] Add `docker-compose.yml` for Arize Phoenix tracing/evaluation service.
+- [x] Add OpenInference instrumentation packages (crewai, litellm) and arize-phoenix to requirements and install.
+- [x] Create `tracing/` module registering Phoenix tracer (project_name = repo name) and import it in `main.py`.
+- [x] Make Playwright MCP args dynamic via `config/playwright_config.py` and `build_playwright_args()`.
+- [x] Refactor LLM config: variables in `config/llm_config.py`, provider modules in `llm_providers/`, common fetcher `llm_providers/llm_provider.py`.
+- [x] Add `config/phoenix_config.py` for Phoenix settings and use them in registration.
 
 ## Next
 - [ ] Implement application features per project breakdown.

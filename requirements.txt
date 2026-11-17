@@ -1,3 +1,6 @@
 crewai[tools]
 crewai[litellm]
 crewai-tools[mcp]
+openinference-instrumentation-crewai
+openinference-instrumentation-litellm
+arize-phoenix

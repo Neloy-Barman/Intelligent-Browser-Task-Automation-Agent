@@ -12,7 +12,10 @@ Intelligent Browser Task Automation Agent — a browser task automation agent po
 ## Functionalities
 - Browser Automation Agent (CrewAI Agent with role, goal, backstory, llm).
 - Browser Automation Task (CrewAI Task with description, expected_output, assigned to browser_automation_agent).
-- LLM Config (OpenRouter provider, model and API key from environment).
+- LLM Config (Variables in config/llm_config.py; provider modules in llm_providers/; llm_providers/llm_provider.py selects via LLM_PROVIDER).
 - Crew (CrewAI Crew orchestrating browser_automation_agent and browser_automation_task).
 - Main (Entry point reading user task input and kicking off the crew with interpolation).
-- MCP (Playwright MCP server configuration exposed to the agent).
+- MCP (Playwright MCP server configuration exposed to the agent; args built dynamically from playwright_config.py).
+- Docker/Phoenix (docker-compose.yml running Arize Phoenix for tracing and evaluations).
+- Instrumentation (OpenInference packages for CrewAI and LiteLLM for tracing/evals).
+- Tracing (Phoenix tracer registration under project name = repo name; settings in config/phoenix_settings.py).

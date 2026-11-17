@@ -1,7 +1,7 @@
 from crewai import Agent
 
-from config.llm_config import llm
-from mcp_config.playwright_mcp import playwright_mcp_server
+from llm_providers import llm
+from mcp_servers.playwright_mcp import playwright_mcp_server
 
 
 # MCP servers available to this agent (standard crewai.mcp approach).
