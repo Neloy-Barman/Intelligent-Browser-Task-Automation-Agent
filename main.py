@@ -8,7 +8,9 @@ from crew import crew
 
 def main():
     # Direct task input (edit this value as needed)
-    user_task = "Visit https://qa-playground-automation-testing.onrender.com/ and provide the names of all available products."
+    # user_task = "Visit https://qa-playground-automation-testing.onrender.com/ and provide the names of all available products."
+
+    user_task = "Visit https://qa-playground-automation-testing.onrender.com/products and provide the names of all available products."
 
     # Prompt-based input (commented out for now)
     # user_task = input("Enter the browser automation task: ").strip()
@@ -16,7 +18,7 @@ def main():
     #     print("No task provided. Exiting.")
     #     sys.exit(1)
 
-    result = crew.kickoff(inputs={"task": user_task})
+    result = crew.kickoff(inputs={"user_task": user_task})
     print("\nResult:\n", result)
 
 

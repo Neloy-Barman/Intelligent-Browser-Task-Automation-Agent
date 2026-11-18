@@ -25,8 +25,18 @@
 - [x] Add OpenInference instrumentation packages (crewai, litellm) and arize-phoenix to requirements and install.
 - [x] Create `tracing/` module registering Phoenix tracer (project_name = repo name) and import it in `main.py`.
 - [x] Make Playwright MCP args dynamic via `config/playwright_config.py` and `build_playwright_args()`.
-- [x] Refactor LLM config: variables in `config/llm_config.py`, provider modules in `llm_providers/`, common fetcher `llm_providers/llm_provider.py`.
+- [x] Refactor LLM config: common variables in `config/llm_config.py`, single LLM construction in `llm_providers/llm_provider.py`.
 - [x] Add `config/phoenix_config.py` for Phoenix settings and use them in registration.
 
 ## Next
 - [ ] Implement application features per project breakdown.
+
+## Frontend (Streamlit) - Plan
+- [x] Add `streamlit` to `requirements.txt` and install.
+- [x] Create `frontend/` folder with `app.py`.
+- [x] Build basic UI: title, task text input, Run button.
+- [x] Connect Run button to `main`/`crew` backend (invoke crew.kickoff with task).
+- [ ] Capture and display logs/output in the UI.
+- [x] Display final result in the UI.
+- [ ] Handle errors and show user-friendly messages.
+- [ ] Test end-to-end with a sample task.

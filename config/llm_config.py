@@ -15,6 +15,18 @@ LM_STUDIO_API_KEY = os.getenv("LM_STUDIO_API_KEY", "lm-studio")
 # Active provider selector (defined here, not in .env)
 LLM_PROVIDER = "lm_studio"  # "openrouter" or "lm_studio"
 
+# Common variables derived from the selected provider
+if LLM_PROVIDER == "openrouter":
+    LLM_API_KEY = OPENROUTER_API_KEY
+    LLM_MODEL = f"openrouter/{OPENROUTER_MODEL}"
+    LLM_BASE_URL = None
+    LLM_IS_LITELLM = True
+else:
+    LLM_API_KEY = LM_STUDIO_API_KEY
+    LLM_MODEL = f"openai/{LM_STUDIO_MODEL}"
+    LLM_BASE_URL = LM_STUDIO_BASE_URL
+    LLM_IS_LITELLM = False
+
 # Shared LLM settings
 LLM_TEMPERATURE = 0.6
 LLM_TIMEOUT = 120  # seconds

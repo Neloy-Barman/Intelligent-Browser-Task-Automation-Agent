@@ -5,12 +5,20 @@ from agents.browser_automation_agent import browser_automation_agent
 
 browser_automation_task = Task(
     description="""
-Automate the following browser task: {task}.
-Navigate the target website and perform the required interactions.
+The user wants you to do this web task:
+
+{user_task}
+
+First write a short numbered plan. Then carry it out in the browser, verifying
+each step. If a step fails, replan and try a different tool or approach until
+the task is complete or you are clearly blocked.
 """,
+
     expected_output="""
-A concise summary of the actions performed
-and the information extracted from the browser.
+The final result of the task only, stated plainly and directly.
+Do not include the steps taken, explanations, or extra commentary.
 """,
+
     agent=browser_automation_agent,
+    verbose=True,
 )
