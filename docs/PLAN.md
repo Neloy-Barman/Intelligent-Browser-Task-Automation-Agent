@@ -27,6 +27,10 @@
 - [x] Make Playwright MCP args dynamic via `config/playwright_config.py` and `build_playwright_args()`.
 - [x] Refactor LLM config: common variables in `config/llm_config.py`, single LLM construction in `llm_providers/llm_provider.py`.
 - [x] Add `config/phoenix_config.py` for Phoenix settings and use them in registration.
+- [x] Add `FileReadTool` to the browser automation agent to read saved snapshot files.
+- [x] Move agent role/goal/backstory to `config/agents_config.py` and update backstory per user's instructions.
+- [x] Verified end-to-end agent run: task completed successfully with tool calls.
+- [x] Add `manual_browser_task.py` (Playwright sync script) for manual task walkthrough and prompting reference.
 
 ## Next
 - [ ] Implement application features per project breakdown.

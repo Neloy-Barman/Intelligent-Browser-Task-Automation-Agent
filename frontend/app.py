@@ -5,6 +5,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")
 
 import streamlit as st
 
+from config.playwright_config import PLAYWRIGHT_SNAPSHOT_DIR
 from crew import crew
 
 st.set_page_config(page_title="Browser Automation Agent", layout="centered")
@@ -18,6 +19,8 @@ if st.button("Run"):
     if not task.strip():
         st.warning("Please enter a task.")
     else:
+        import shutil
+
         with st.spinner("Running agent..."):
             try:
                 result = crew.kickoff(inputs={"user_task": task.strip()})
@@ -26,3 +29,5 @@ if st.button("Run"):
                 st.write(result)
             except Exception as e:
                 st.error(f"Error: {e}")
+            finally:
+                shutil.rmtree(PLAYWRIGHT_SNAPSHOT_DIR, ignore_errors=True)

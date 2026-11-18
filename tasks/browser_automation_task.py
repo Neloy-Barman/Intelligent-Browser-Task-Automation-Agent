@@ -9,14 +9,12 @@ The user wants you to do this web task:
 
 {user_task}
 
-First write a short numbered plan. Then carry it out in the browser, verifying
-each step. If a step fails, replan and try a different tool or approach until
-the task is complete or you are clearly blocked.
+Break down the given task into smaller steps. Map proper tools to each step.
+Build a checklist. Perform the plan steps. Reach the final response.
 """,
 
     expected_output="""
-The final result of the task only, stated plainly and directly.
-Do not include the steps taken, explanations, or extra commentary.
+The result requested by the user, stated clearly and in a well-formatted way.
 """,
 
     agent=browser_automation_agent,
